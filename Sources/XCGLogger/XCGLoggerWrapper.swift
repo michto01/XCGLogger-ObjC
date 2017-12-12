@@ -21,9 +21,11 @@ import Foundation
 // Obj-C wrapper for XCGLogger
 @objcMembers
 public class XCGLogWrapper: NSObject {
-    public lazy var sharedInstance : XCGLogger = {
-        return XCGLogger.default
-    }()
+    public static var sharedInstance : XCGLogger = XCGLogger.default
+    
+    public static func setLevel(_ level: LogLevel) {
+        sharedInstance.outputLevel = XCGLogger.Level(rawValue: level.rawValue)!
+    }
     
     public static func log(level: LogLevel, functionName: String, fileName: String, lineNumber: Int, logMessage: String) {
         let log = XCGLogger.default

@@ -19,7 +19,7 @@
 #define LogWarn(...)  XCGLogva( LogLevelWarning, ([NSString stringWithFormat: __VA_ARGS__ ]) )
 #define LogError(...) XCGLogva( LogLevelError, ([NSString stringWithFormat: __VA_ARGS__ ]) )
 
-#define LogLevel(level) [[XCGLogWrapper sharedInstance] setOutputLogLevel:level]
+#define LogLevel(level) [XCGLogWrapper setLevel:level]
 
 #ifdef DEBUG
 
